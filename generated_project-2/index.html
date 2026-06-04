@@ -1,0 +1,44 @@
+<!DOCTYPE html>
+<html lang="en">
+<head>
+    <meta charset="UTF-8">
+    <meta name="viewport" content="width=device-width, initial-scale=1.0">
+    <title>Simple Trip Planner</title>
+    <link rel="stylesheet" href="styles.css">
+    <link rel="stylesheet" href="script.js">
+</head>
+<body>
+    <!-- Header Section -->
+    <header>
+        <h1>Simple Trip Planner</h1>
+    </header>
+    
+    <!-- Form Section -->
+    <form id="destination-form">
+        <input type="text" id="dest-name" name="dest-name" placeholder="Destination" required>
+        <input type="date" id="start-date" name="start-date" required>
+        <input type="date" id="end-date" name="end-date" required>
+        <textarea id="notes" name="notes" placeholder="Optional notes"></textarea>
+        <button type="submit">Add Destination</button>
+    </form>
+    
+    <!-- Itinerary Container Section -->
+    <section id="itinerary-container">
+        <ul id="itinerary-list"></ul>
+    </section>
+    
+    <!-- Itinerary Item Template Section -->
+    <template id="itinerary-item-template">
+        <!-- Itinerary Item Markup -->
+        <li>
+            <span>Destination: <span id="dest-name"></span></span>
+            <span>Dates: <span id="start-date"></span> - <span id="end-date"></span></span>
+            <span>Notes: <span id="notes"></span></span>
+            <button id="edit-btn">Edit</button>
+            <button id="delete-btn">Delete</button>
+        </li>
+    </template>
+    
+    <script src="script.js" defer></script>
+</body>
+</html>

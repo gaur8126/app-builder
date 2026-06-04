@@ -1,0 +1,242 @@
+/* Global Reset */
+*, *::before, *::after {
+    box-sizing: border-box;
+    margin: 0;
+    padding: 0;
+}
+
+/* Root Variables */
+:root {
+    --primary-color: #4CAF50; /* Green */
+    --secondary-color: #FFC107; /* Amber */
+    --accent-color: #2196F3; /* Blue */
+    --text-color: #333;
+    --background-color: #f4f7f6;
+    --light-gray: #eee;
+    --dark-gray: #ccc;
+
+    --font-family-primary: 'Roboto', sans-serif;
+    --font-family-secondary: 'Open Sans', sans-serif;
+
+    --spacing-extra-small: 5px;
+    --spacing-small: 10px;
+    --spacing-medium: 15px;
+    --spacing-large: 20px;
+    --spacing-extra-large: 30px;
+
+    --border-radius: 8px;
+    --box-shadow: 0 4px 8px rgba(0, 0, 0, 0.1);
+}
+
+/* Body Styling */
+body {
+    font-family: var(--font-family-primary);
+    background-color: var(--background-color);
+    color: var(--text-color);
+    line-height: 1.6;
+    padding: var(--spacing-large);
+    max-width: 900px;
+    margin: var(--spacing-extra-large) auto;
+    box-shadow: var(--box-shadow);
+    border-radius: var(--border-radius);
+    background: #fff;
+}
+
+/* Header Styling */
+h1 {
+    text-align: center;
+    color: var(--primary-color);
+    margin-bottom: var(--spacing-extra-large);
+    font-size: 2.5em;
+    font-family: var(--font-family-secondary);
+}
+
+/* Form Styling */
+.itinerary-form {
+    display: flex;
+    flex-direction: column;
+    gap: var(--spacing-medium);
+    padding: var(--spacing-large);
+    border: 1px solid var(--light-gray);
+    border-radius: var(--border-radius);
+    margin-bottom: var(--spacing-extra-large);
+    background: #fff;
+}
+
+.itinerary-form div {
+    display: flex;
+direction: column;
+}
+
+.itinerary-form label {
+    margin-bottom: var(--spacing-extra-small);
+    font-weight: bold;
+    color: var(--text-color);
+}
+
+.itinerary-form input[type="text"],
+.itinerary-form input[type="date"],
+.itinerary-form input[type="time"],
+.itinerary-form textarea {
+    padding: var(--spacing-small);
+    border: 1px solid var(--dark-gray);
+    border-radius: var(--border-radius);
+    font-family: var(--font-family-primary);
+    font-size: 1em;
+    width: 100%;
+    transition: border-color 0.3s ease, box-shadow 0.3s ease;
+}
+
+.itinerary-form input[type="text"]:focus,
+.itinerary-form input[type="date"]:focus,
+.itinerary-form input[type="time"]:focus,
+.itinerary-form textarea:focus {
+    outline: none;
+    border-color: var(--accent-color);
+    box-shadow: 0 0 0 3px rgba(33, 150, 243, 0.2); /* Accent color with transparency */
+}
+
+.itinerary-form input[type="submit"] {
+    background-color: var(--primary-color);
+    color: white;
+    padding: var(--spacing-medium) var(--spacing-large);
+    border: none;
+    border-radius: var(--border-radius);
+    cursor: pointer;
+    font-size: 1.1em;
+    font-weight: bold;
+    transition: background-color 0.3s ease;
+    align-self: flex-end;
+}
+
+.itinerary-form input[type="submit"]:hover {
+    background-color: #43a047; /* Darker green */
+}
+
+.itinerary-form input:disabled,
+.itinerary-form textarea:disabled {
+    background-color: var(--light-gray);
+    color: var(--dark-gray);
+    cursor: not-allowed;
+}
+
+.itinerary-form input:invalid,
+.itinerary-form textarea:invalid {
+    border-color: #F44336; /* Red for invalid */
+    box-shadow: 0 0 0 3px rgba(244, 67, 54, 0.2);
+}
+
+/* Itinerary List Styling */
+.itinerary-list {
+    display: grid;
+    grid-template-columns: repeat(auto-fill, minmax(280px, 1fr));
+    gap: var(--spacing-large);
+    list-style: none;
+    padding: 0;
+}
+
+.itinerary-item {
+    background: #fff;
+    padding: var(--spacing-medium);
+    border: 1px solid var(--light-gray);
+    border-radius: var(--border-radius);
+    box-shadow: var(--box-shadow);
+    display: flex;
+    flex-direction: column;
+    gap: var(--spacing-small);
+    transition: transform 0.2s ease-in-out;
+}
+
+.itinerary-item:hover {
+    transform: translateY(-5px);
+}
+
+.itinerary-item h3 {
+    color: var(--accent-color);
+    margin-bottom: var(--spacing-extra-small);
+}
+
+.itinerary-item p {
+    font-size: 0.95em;
+    color: var(--text-color);
+}
+
+.itinerary-item .actions {
+    display: flex;
+    justify-content: flex-end;
+    gap: var(--spacing-small);
+    margin-top: var(--spacing-small);
+}
+
+/* Button Styling */
+.edit-btn,
+.delete-btn {
+    padding: var(--spacing-small) var(--spacing-medium);
+    border: none;
+    border-radius: var(--border-radius);
+    cursor: pointer;
+    font-size: 0.9em;
+    font-weight: bold;
+    transition: background-color 0.3s ease;
+}
+
+.edit-btn {
+    background-color: var(--secondary-color);
+    color: var(--text-color);
+}
+
+.edit-btn:hover {
+    background-color: #ffb300; /* Darker amber */
+}
+
+.delete-btn {
+    background-color: #F44336; /* Red */
+    color: white;
+}
+
+.delete-btn:hover {
+    background-color: #d32f2f; /* Darker red */
+}
+
+/* Media Queries for Mobile */
+@media (max-width: 600px) {
+    body {
+        padding: var(--spacing-medium);
+        margin: var(--spacing-medium) auto;
+    }
+
+    h1 {
+        font-size: 2em;
+    }
+
+    .itinerary-form {
+        padding: var(--spacing-medium);
+    }
+
+    .itinerary-form div {
+        flex-direction: column;
+        gap: var(--spacing-small);
+    }
+
+    .itinerary-form input[type="text"],
+    .itinerary-form input[type="date"],
+    .itinerary-form input[type="time"],
+    .itinerary-form textarea,
+    .itinerary-form input[type="submit"] {
+        padding: var(--spacing-medium); /* Increase tap target size */
+        font-size: 1em;
+    }
+
+    .itinerary-list {
+        grid-template-columns: 1fr; /* Stack items */
+    }
+
+    .itinerary-item {
+        padding: var(--spacing-large); /* Ensure readability */
+    }
+
+    .edit-btn,
+    .delete-btn {
+        padding: var(--spacing-medium) var(--spacing-large); /* Increase tap target size */
+    }
+}

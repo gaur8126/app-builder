@@ -26,7 +26,8 @@ def main():
         # model =  "mistralai/mistral-medium-3.5-128b" <
         # model =  "qwen/qwen3-coder-480b-a35b-instruct"
         #  model="stepfun-ai/step-3.5-flash"
-         model="deepseek-ai/deepseek-v4-flash"
+        #  model="deepseek-ai/deepseek-v4-flash"
+         model="meta/llama-3.3-70b-instruct"
     )
 
     structured_model = model.with_structured_output(Joke)

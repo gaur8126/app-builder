@@ -29,16 +29,16 @@ llm = ChatGroq(model="openai/gpt-oss-120b")
 # model = ChatGroq(model="qwen/qwen3-32b")
 # # llm = ChatOllama(model="qwen2.5:1.5b")
 
-model = ChatGoogleGenerativeAI(
-    model="gemini-2.5-flash"
+# model = ChatGoogleGenerativeAI(
+#     model="gemini-2.5-flash"
     
-)
+# )
 
-# model = ChatNVIDIA(
-#         model="mistralai/mistral-medium-3.5-128b"
-#     )
+model = ChatNVIDIA(
+        model="meta/llama-3.3-70b-instruct"
+    )
 
-user_prompt = "create a simple todo app using only HTML, CSS and JavaScript"
+user_prompt = "create a simple trip planner app using only HTML, CSS and JavaScript"
 
 
 def planner_agent(state:dict) -> dict:
