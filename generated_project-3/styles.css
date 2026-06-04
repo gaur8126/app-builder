@@ -1,0 +1,152 @@
+/*
+  Calculator UI Styles
+  ====================
+  This stylesheet defines a clean, responsive design for the simple calculator.
+  It uses CSS custom properties (variables) for easy theming and maintains a
+  consistent visual language across the component.
+*/
+
+/* --------------------------------------------------------------------------
+   Root variables – colour palette, sizing, spacing
+   -------------------------------------------------------------------------- */
+:root {
+  /* Colour palette */
+  --bg-color: #f4f7f9;
+  --calculator-bg: #ffffff;
+  --display-bg: #eaeaea;
+  --operator-bg: #ff9500;   /* orange for operators */
+  --clear-bg: #ff3b30;      /* red for clear */
+  --equals-bg: #34c759;     /* green for equals */
+  --key-bg: #f0f0f0;
+  --key-bg-hover: #d9d9d9;
+  --key-text: #333333;
+  --focus-outline: #0066ff;
+
+  /* Typography */
+  --font-family: -apple-system, BlinkMacSystemFont, "Segoe UI", Roboto, Helvetica, Arial, sans-serif;
+  --font-size-base: 1rem;      /* 16px */
+  --display-font-size: 2.5rem; /* larger for the display */
+  --key-font-size: 1.25rem;    /* 20px */
+
+  /* Spacing */
+  --spacing: 0.5rem;           /* 8px */
+  --key-padding: 0.75rem 0;    /* vertical padding for keys */
+}
+
+/* --------------------------------------------------------------------------
+   Global box‑sizing & body styles
+   -------------------------------------------------------------------------- */
+*, *::before, *::after {
+  box-sizing: border-box;
+}
+
+body {
+  margin: 0;
+  font-family: var(--font-family);
+  font-size: var(--font-size-base);
+  background-color: var(--bg-color);
+  display: flex;
+  align-items: center;
+  justify-content: center;
+  min-height: 100vh;
+}
+
+/* --------------------------------------------------------------------------
+   Calculator container
+   -------------------------------------------------------------------------- */
+.calculator {
+  background-color: var(--calculator-bg);
+  padding: calc(var(--spacing) * 2);
+  border-radius: 0.75rem;
+  box-shadow: 0 4px 12px rgba(0, 0, 0, 0.1);
+  max-width: 400px;
+  width: 100%;
+}
+
+/* --------------------------------------------------------------------------
+   Display
+   -------------------------------------------------------------------------- */
+#display {
+  background-color: var(--display-bg);
+  font-size: var(--display-font-size);
+  text-align: right;
+  padding: var(--spacing);
+  border-radius: 0.5rem;
+  margin-bottom: var(--spacing);
+  overflow-x: auto; /* allow long numbers to scroll */
+}
+
+/* --------------------------------------------------------------------------
+   Keys grid layout
+   -------------------------------------------------------------------------- */
+.calculator__keys {
+  display: grid;
+  grid-template-columns: repeat(4, 1fr);
+  gap: var(--spacing);
+}
+
+/* --------------------------------------------------------------------------
+   Individual key styling
+   -------------------------------------------------------------------------- */
+.key {
+  background-color: var(--key-bg);
+  color: var(--key-text);
+  border: none;
+  border-radius: 0.4rem;
+  font-size: var(--key-font-size);
+  padding: var(--key-padding);
+  cursor: pointer;
+  transition: background-color 0.2s ease, transform 0.1s ease;
+}
+
+.key:hover,
+.key:focus {
+  background-color: var(--key-bg-hover);
+  outline: 2px solid var(--focus-outline);
+  outline-offset: 2px;
+  transform: translateY(-1px);
+}
+
+/* Modifier classes ---------------------------------------------------------- */
+.key--operator {
+  background-color: var(--operator-bg);
+  color: #ffffff;
+}
+
+.key--operator:hover,
+.key--operator:focus {
+  background-color: #e68a00; /* slightly darker on hover */
+}
+
+.key--clear {
+  background-color: var(--clear-bg);
+  color: #ffffff;
+}
+
+.key--clear:hover,
+.key--clear:focus {
+  background-color: #d32f2f;
+}
+
+.key--equals {
+  background-color: var(--equals-bg);
+  color: #ffffff;
+  grid-column: span 2;
+  font-weight: bold;
+}
+
+.key--equals:hover,
+.key--equals:focus {
+  background-color: #28a745;
+}
+
+/* --------------------------------------------------------------------------
+   Responsive adjustments
+   -------------------------------------------------------------------------- */
+@media (max-width: 600px) {
+  :root {
+    --display-font-size: 2rem;
+    --key-font-size: 1rem;
+    --key-padding: 0.5rem 0;
+  }
+}

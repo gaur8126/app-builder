@@ -34,11 +34,11 @@ llm = ChatGroq(model="openai/gpt-oss-120b")
     
 # )
 
-model = ChatNVIDIA(
-        model="meta/llama-3.3-70b-instruct"
-    )
+# model = ChatNVIDIA(
+#         model="meta/llama-3.3-70b-instruct"
+#     )
 
-user_prompt = "create a simple trip planner app using only HTML, CSS and JavaScript"
+user_prompt = "create a simple calculator app using only HTML, CSS and JavaScript"
 
 
 def planner_agent(state:dict) -> dict:
@@ -57,6 +57,9 @@ def architect_agetn(state:dict) -> dict:
     res.plan = plan
 
     return {'task_plan': res}
+
+coder_tools = [read_file, write_file, list_files, get_current_directory]
+react_agent = create_react_agent(llm, coder_tools)
 
 def coder_agent(state:dict) -> dict: 
 
@@ -81,8 +84,6 @@ def coder_agent(state:dict) -> dict:
         "Use write_file(path, content) to save your changes."
     )
 
-    coder_tools = [read_file, write_file, list_files, get_current_directory]
-    react_agent = create_react_agent(model, coder_tools)
 
     react_agent.invoke({"messages": [{"role": "system", "content": system_prompt},
                                      {"role": "user", "content": user_prompt}]})
