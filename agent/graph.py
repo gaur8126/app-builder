@@ -6,6 +6,7 @@ from dotenv import load_dotenv
 from pydantic import BaseModel, Field
 from langgraph.graph import StateGraph, END, START
 from langchain_google_genai import ChatGoogleGenerativeAI
+from langchain_nvidia_ai_endpoints import ChatNVIDIA
 
 
 try:
@@ -25,14 +26,19 @@ set_debug(True)
 
 # LLM - Brain of our agent
 llm = ChatGroq(model="openai/gpt-oss-120b")
-# llm = ChatOllama(model="qwen2.5:1.5b")
+# model = ChatGroq(model="qwen/qwen3-32b")
+# # llm = ChatOllama(model="qwen2.5:1.5b")
 
 model = ChatGoogleGenerativeAI(
-    model="gemini-3.5-flash"
+    model="gemini-2.5-flash"
     
 )
 
-user_prompt = "create a simple attractive todo app"
+# model = ChatNVIDIA(
+#         model="mistralai/mistral-medium-3.5-128b"
+#     )
+
+user_prompt = "create a simple todo app using only HTML, CSS and JavaScript"
 
 
 def planner_agent(state:dict) -> dict:

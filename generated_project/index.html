@@ -1,0 +1,35 @@
+<!DOCTYPE html>
+<html lang="en">
+<head>
+    <meta charset="UTF-8">
+    <meta name="viewport" content="width=device-width, initial-scale=1.0">
+    <title>SimpleTodoApp</title>
+    <!-- Link to the stylesheet for styling the app -->
+    <link rel="stylesheet" href="styles.css">
+    <!-- Link to the JavaScript file for app logic -->
+    <script defer src="app.js"></script>
+</head>
+<body>
+    <!-- Main container for the todo application -->
+    <div class="todo-app">
+        <h1>Simple Todo App</h1>
+
+        <!-- Section for adding new todo items -->
+        <div class="input-section">
+            <input id="new-todo" type="text" placeholder="What needs to be done?" />
+            <button id="add-btn">Add</button>
+        </div>
+
+        <!-- Unordered list to display todo items -->
+        <ul id="todo-list" class="todo-list">
+            <!-- Todo items will be dynamically added here by app.js -->
+        </ul>
+
+        <!-- Footer section with controls and item counter -->
+        <div class="footer">
+            <button id="clear-completed">Clear Completed</button>
+            <span id="items-left"></span>
+        </div>
+    </div>
+</body>
+</html>
